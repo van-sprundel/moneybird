@@ -21,19 +21,16 @@ module Moneybird::Resource
       credit_card_number
       credit_card_reference
       credit_card_type
-      custom_fields
       customer_id
       delivery_method
       email
       email_ubl
       estimate_workflow_id
-      events
       firstname
       id
       invoice_workflow_id
       lastname
       moneybird_payments_mandate
-      notes
       phone
       sales_invoices_url
       send_estimates_to_attention
@@ -57,6 +54,9 @@ module Moneybird::Resource
       version
       zipcode
     )
+
+    @attributes += %i(custom_fields events notes)
+    attr_reader :custom_fields, :events, :notes
 
     def notes=(notes)
       @notes = notes.map{ |note| Moneybird::Resource::Generic::Note.build(note) }

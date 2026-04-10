@@ -8,19 +8,15 @@ module Moneybird::Resource
     has_attributes %i(
       administration_id
       attachments
-      contact
       contact_id
       contact_person
       contact_person_id
       created_at
       currency
-      custom_fields
-      details
       discount
       document_style_id
       draft_id
       due_date
-      events
       id
       identity_id
       invoice_date
@@ -30,7 +26,6 @@ module Moneybird::Resource
       marked_dubious_on
       marked_uncollectible_on
       next_reminder
-      notes
       original_estimate_id
       original_sales_invoice_id
       paid_at
@@ -38,7 +33,6 @@ module Moneybird::Resource
       payment_conditions
       payment_reference
       payment_url
-      payments
       prices_are_incl_tax
       public_view_code
       public_view_code_expires_at
@@ -62,6 +56,9 @@ module Moneybird::Resource
       version
       workflow_id
     )
+
+    @attributes += %i(contact custom_fields details events notes payments)
+    attr_reader :contact, :custom_fields, :details, :events, :notes, :payments
 
     def notes=(notes)
       @notes = notes.map{ |note| Moneybird::Resource::Generic::Note.build(note) }

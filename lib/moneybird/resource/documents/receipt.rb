@@ -8,21 +8,16 @@ module Moneybird::Resource::Documents
     has_attributes %i(
       administration_id
       attachments
-      contact
       contact_id
       created_at
       currency
       date
-      details
       due_date
       entry_number
-      events
       exchange_rate
       id
-      notes
       origin
       paid_at
-      payments
       prices_are_incl_tax
       reference
       revenue_invoice
@@ -35,6 +30,9 @@ module Moneybird::Resource::Documents
       updated_at
       version
     )
+
+    @attributes += %i(contact details events notes payments)
+    attr_reader :contact, :details, :events, :notes, :payments
 
     def notes=(notes)
       @notes = notes.map{ |note| Moneybird::Resource::Generic::Note.build(note) }

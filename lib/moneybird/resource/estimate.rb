@@ -10,12 +10,10 @@ module Moneybird::Resource
       administration_id
       archived_at
       attachments
-      contact
       contact_id
       created_at
       currency
       custom_fields
-      details
       discount
       document_style_id
       draft_id
@@ -27,7 +25,6 @@ module Moneybird::Resource
       id
       identity_id
       language
-      notes
       original_estimate_id
       post_text
       pre_text
@@ -48,6 +45,9 @@ module Moneybird::Resource
       version
       workflow_id
     )
+
+    @attributes += %i(contact details notes)
+    attr_reader :contact, :details, :notes
 
     def notes=(notes)
       @notes = notes.map{ |note| Moneybird::Resource::Generic::Note.build(note) }
