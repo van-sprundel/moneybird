@@ -108,6 +108,8 @@ require 'moneybird/service/payment'
 # Special cases
 require 'moneybird/resource/administration' # Depends on services
 require 'moneybird/service/administration' # Depends on administration resource
+require 'moneybird/token'
+require 'moneybird/oauth'
 require 'moneybird/client'
 require 'moneybird/version'
 require 'moneybird/webhook'

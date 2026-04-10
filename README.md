@@ -11,7 +11,7 @@ Feel free to file Pull Requests
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'moneybird'
+gem 'moneybird', github: 'odeva-labs/moneybird', tag: 'v0.11.0'
 ```
 
 And then execute:
@@ -62,6 +62,35 @@ administrations.contacts.delete(contact)
 # Works similarly with other resources
 
 ```
+### OAuth2
+
+Moneybird uses OAuth2 for authentication. Use `Moneybird::OAuth` to handle the flow:
+
+```ruby
+oauth = Moneybird::OAuth.new(
+  client_id: "your_client_id",
+  client_secret: "your_client_secret",
+  redirect_uri: "https://yourapp.com/callback"
+)
+
+# Step 1: Redirect user
+redirect_to oauth.authorize_url(scope: %w[sales_invoices documents])
+
+# Step 2: Exchange code (in callback)
+token = oauth.token(params[:code])
+
+# Step 3: Use the token
+client = token.client
+administrations = client.administrations
+
+# Step 4: Refresh when needed
+new_token = oauth.refresh(token.refresh_token)
+```
+
+Available scopes: `sales_invoices`, `documents`, `estimates`, `bank`, `time_entries`, `settings`.
+
+The `authorize_url` method accepts an optional `state` parameter for CSRF protection.
+
 ### Webhooks
 
 Moneybird, if so configured, sends webhooks to specified endpoints. This gem can deal with these requests.
