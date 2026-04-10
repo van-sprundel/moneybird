@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird
   class Webhook
     include Moneybird::Resource

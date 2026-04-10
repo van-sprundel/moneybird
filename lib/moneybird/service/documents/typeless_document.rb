@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird::Service::Document
   class TypelessDocument
     include Moneybird::Traits::AdministrationService

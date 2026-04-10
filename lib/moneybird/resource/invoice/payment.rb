@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird::Resource::Invoice
   class Payment
     include Moneybird::Resource

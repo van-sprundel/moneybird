@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird
   module Traits
     module SendInvoice

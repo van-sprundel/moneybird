@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird::Service::Document
   class GeneralJournalDocument
     include Moneybird::Traits::AdministrationService

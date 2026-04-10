@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird::Service
   class Product
     include Moneybird::Traits::AdministrationService

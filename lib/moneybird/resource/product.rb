@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Moneybird::Resource
   class Product
     include Moneybird::Resource
