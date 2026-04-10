@@ -2,6 +2,9 @@
 
 Ruby client for the [Moneybird REST API](https://developer.moneybird.com/). Supports both personal API tokens and OAuth2 authentication.
 
+> [!IMPORTANT]
+> This is a fork of [maartenvanvliet/moneybird](https://github.com/maartenvanvliet/moneybird), this is a very solid implementation that I really wanted to build on top of.
+
 ## Installation
 
 Add this line to your application's Gemfile:
