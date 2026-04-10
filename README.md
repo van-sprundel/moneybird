@@ -1,10 +1,6 @@
-# Moneybird [![Build Status](https://github.com/maartenvanvliet/moneybird/workflows/Ruby/badge.svg?branch=master)](https://github.com/maartenvanvliet/moneybird/actions?query=workflow%3ARuby) [![Code Climate](https://codeclimate.com/github/maartenvanvliet/moneybird/badges/gpa.svg)](https://codeclimate.com/github/maartenvanvliet/moneybird) [![Test Coverage](https://codeclimate.com/github/maartenvanvliet/moneybird/badges/coverage.svg)](https://codeclimate.com/github/maartenvanvliet/moneybird/coverage)
+# Moneybird [![CI](https://github.com/van-sprundel/moneybird/actions/workflows/ruby.yml/badge.svg)](https://github.com/van-sprundel/moneybird/actions/workflows/ruby.yml) [![codecov](https://codecov.io/gh/van-sprundel/moneybird/graph/badge.svg)](https://codecov.io/gh/van-sprundel/moneybird)
 
-Gem to talk to the Moneybird REST API. Right now you'll need to get a 'bearer' token for the client to work, oauth2 support may added later. This gem is still under construction and any methods may still change signature without notice until 1.0 is released.
-
-The library is modelled after http://developer.moneybird.com/ Any inconsistencies or errors in the documentation may also be present in the library.
-
-Feel free to file Pull Requests
+Ruby client for the [Moneybird REST API](https://developer.moneybird.com/). Supports both personal API tokens and OAuth2 authentication.
 
 ## Installation
 
@@ -18,15 +14,10 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install moneybird
-
 ## Usage
 
 ```ruby
-# Client uses bearer token (see: http://developer.moneybird.com/authentication/)
-Moneybird::Client.new('fe3f7f9e239e7d925f9caf695028e60fd3e5c2085f7aebb983cea731dea6b44f')
+client = Moneybird::Client.new('your_bearer_token')
 
 # List administrations
 administrations = client.administrations
@@ -97,7 +88,7 @@ Moneybird, if so configured, sends webhooks to specified endpoints. This gem can
 ```ruby
 webhook = Moneybird::Webhook.from_json(request.body)
 sales_invoice = webhook.build_entity
-sales_invoice.state 
+sales_invoice.state
 ```
 
 ## Development
@@ -108,7 +99,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/maartenvanvliet/moneybird. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/van-sprundel/moneybird. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
